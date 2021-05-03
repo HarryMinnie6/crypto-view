@@ -1,0 +1,16 @@
+.coin{
+    display: flex;
+    flex-direction: column;
+}
+.coin__header{
+    display: flex;
+}
+.coin__footer{
+    display: flex;
+}
+.coin-percent__red{
+    color: red
+}
+.coin-percent__green{
+    color: green
+}

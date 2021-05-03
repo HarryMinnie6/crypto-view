@@ -2,107 +2,57 @@ import React, { useEffect, useState } from "react";
 
 import "./App.css";
 import { FormControl, MenuItem, Select } from "@material-ui/core";
+import Coin from "./components/Coin/Coin";
+import TrendingCoins from "./components/TrendingCoins/TrendingCoins";
+import SearchForCoins from "./components/SearchForCoins/SearchForCoins";
+import TopFiveCoins from "./components/TopFiveCoins/TopFiveCoins";
+
 function App() {
   const [coins, setCoins] = useState([]);
   const [coin, setCoin] = useState("coin");
   const [singleCoinInfo, setSingleCoinInfo] = useState({});
   const [coinInfo, setCoinInfo] = useState({});
+  const [search, setSearch] = useState("");
 
-  useEffect(() => {
-    fetch("https://coinranking1.p.rapidapi.com/coins")
-      .then((response) => response.json())
-      .then((data) => {
-        setCoinInfo(data);
-      });
-  }, []);
+  const searchCoins = (event) => {
+    setSearch(event.target.value);
+  };
 
+  {
+    /* getting all the coins*/
+  }
   useEffect(() => {
     const getAllCoinsData = async () => {
-      await fetch("https://coinranking1.p.rapidapi.com/coins", {
-        method: "GET",
-        headers: {
-          "x-rapidapi-key":
-            "491ccbcd4dmshd157ea3d7e474efp152ba1jsn60cc5fb9a981",
-          "x-rapidapi-host": "coinranking1.p.rapidapi.com",
-        },
-      })
+      await fetch(
+        "https://api.coingecko.com/api/v3/coins/markets?vs_currency=usd&order=market_cap_desc&per_page=100&page=1&sparkline=false"
+      )
         .then((response) => response.json())
         .then((data) => {
-          let retrievedCoins = data.data.coins;
-
-          setCoins(retrievedCoins);
-          var delayInMilliseconds = 2000; //1 second
-
-          setTimeout(function () {
-            console.log("coins", coins);
-          }, delayInMilliseconds);
+          console.log(data);
+          setCoins(data);
         });
+      console.log("coins --->", coins);
     };
 
     getAllCoinsData();
   }, []);
 
-  const requestOptions = {
-    method: "GET",
-    headers: {
-      "x-rapidapi-key": "491ccbcd4dmshd157ea3d7e474efp152ba1jsn60cc5fb9a981",
-      "x-rapidapi-host": "coinranking1.p.rapidapi.com",
-    },
-  };
-
-  const onCoinChange = async (event) => {
-    const coinCode = event.target.value;
-    console.log("coin code", coinCode);
-    // setting state for the country...
-
-    const url =
-      coinCode === coin.id
-        ? "https://coinranking1.p.rapidapi.com/coins"
-        : `https://coinranking1.p.rapidapi.com/coin/${coinCode} `;
-
-    await fetch(url, requestOptions)
-      .then((response) => response.json())
-      .then((data) => {
-        setCoin(coinCode);
-        setCoinInfo(data);
-
-        // console.log("coinInfo from url", coinInfo);
-      });
-
-    console.log("coin info >> ", coinInfo);
-  };
-
   return (
     <div className='app'>
-      <h1>test</h1>
+      {/* display top 5 coins*/}
+      <TopFiveCoins coins={coins} />
+      {/* Total Market Cap*/}
 
-      <FormControl>
-        <Select
-          className='header__selectBox'
-          variant='outlined'
-          value={coin}
-          onChange={onCoinChange}
-        >
-          {/* All Coins option */}
-          <MenuItem value='coin'>coin</MenuItem>
+      <div></div>
+      {/* Search for a Coin*/}
+      <SearchForCoins coins={coins} />
 
-          {/* Renders all the coins */}
-          {coins.map((coin) => (
-            <MenuItem key={coin.name} value={coin.id}>
-              {" "}
-              {coin.name}
-            </MenuItem>
-          ))}
-        </Select>
-      </FormControl>
+      <div>
+        {/* Trending coins*/}
+        <TrendingCoins />
+      </div>
 
-      {coins.map((coin) => (
-        <div>
-          <p>{coin.name}</p>
-          <p>{coin.symbol}</p>
-          <p>{coin.iconUrl}</p>
-        </div>
-      ))}
+      {/* display top 5 coins in a side scroll bar*/}
     </div>
   );
 }
