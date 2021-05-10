@@ -6,6 +6,7 @@ import Coin from "./components/Coin/Coin";
 import TrendingCoins from "./components/TrendingCoins/TrendingCoins";
 import SearchForCoins from "./components/SearchForCoins/SearchForCoins";
 import TopFiveCoins from "./components/TopFiveCoins/TopFiveCoins";
+import Header from "./components/Header/Header";
 
 function App() {
   const [coins, setCoins] = useState([]);
@@ -38,19 +39,24 @@ function App() {
   }, []);
 
   return (
-    <div className='app'>
+    <div className="app">
+      <Header />
       {/* display top 5 coins*/}
-      <TopFiveCoins coins={coins} />
+      <div className="app_top">
+        <TopFiveCoins coins={coins} />
+      </div>
+
       {/* Total Market Cap*/}
 
-      <div></div>
-      {/* Search for a Coin*/}
-      <SearchForCoins coins={coins} />
-
-      <div>
-        {/* Trending coins*/}
-        <TrendingCoins />
+      <div className="app_bottom">
+        <div className="app_bottom--left">
+          <SearchForCoins coins={coins} />
+        </div>
+        <div className="app_bottom--right">
+          <TrendingCoins />
+        </div>
       </div>
+      {/* Search for a Coin*/}
 
       {/* display top 5 coins in a side scroll bar*/}
     </div>

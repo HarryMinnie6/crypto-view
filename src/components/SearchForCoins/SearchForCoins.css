@@ -1,0 +1,13 @@
+.searchforCoin__holder {
+  color: #f9ffff;
+  background-color: #323c46;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.searchforCoin__holder > h1 {
+  color: #f9ffff;
+}
+
+.coin__search {
+}

@@ -1,6 +1,8 @@
-import React,{useState} from "react";
-import Coin from '../Coin/Coin'
-function SearchForCoins({coins}) {
+import React, { useState } from "react";
+import Coin from "../Coin/Coin";
+import "./SearchForCoins.css";
+
+function SearchForCoins({ coins }) {
   const [search, setSearch] = useState("");
   //filtering coins
   const filteredCoins = coins.filter((coin) =>
@@ -11,15 +13,14 @@ function SearchForCoins({coins}) {
     setSearch(event.target.value);
   };
 
-  
   return (
-    <div>
-    <h1>search for a coin</h1>
+    <div className="searchforCoin__holder">
+      <h1>search for a coin</h1>
       <form>
         <input
-          type='text'
-          placeholder='Coin Search'
-          className=''
+          type="text"
+          placeholder="Coin Search"
+          className="coin__search"
           onChange={searchCoins}
         />
       </form>

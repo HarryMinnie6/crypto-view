@@ -4,5 +4,18 @@
 }
 
 .app {
+  display: flex;
+  flex-direction: column;
   text-align: center;
+  background: #283039;
+  /* background: linear-gradient(225deg, rgb(55, 66, 97) 0%, rgb(38, 47, 78) 100%); */
+  color: #f9ffff;
+}
+.app_bottom {
+  display: flex;
+}
+.app_bottom--left {
+  display: flex;
+  flex-direction: column;
+  flex: 0.3;
 }
