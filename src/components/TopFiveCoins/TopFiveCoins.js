@@ -4,7 +4,7 @@ import "./TopFivecoins.css";
 function TopFiveCoins({ coins }) {
   return (
     <div className="topFiveCoins__holder">
-      <h3>Top 5 Coins by Market Cap</h3>
+      <h3 className="topFiveCoins__holder-header">Top 5 Coins by Market Cap</h3>
       <div className="topFiveCoins">
         {coins.slice(0, 5).map((coin) => (
           <Coin

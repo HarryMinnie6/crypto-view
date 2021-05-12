@@ -1,78 +1,72 @@
 .coin {
+  position: relative;
   min-width: 220px;
   max-width: 320px;
   color: #f9ffff;
-  background: rgb(83, 94, 127);
-  background: linear-gradient(
-    135deg,
-    rgba(83, 94, 127, 1) 0%,
-    rgba(47, 58, 86, 1) 100%
-  );
-  margin: 10px;
+  background: #0c1a32;
+  display: flex;
+  justify-content: space-between;
+  margin: 5px;
   padding: 10px 15px;
   border-radius: 3px;
 }
-.coin__header {
-  display: flex;
-  justify-content: space-between;
-}
-
 .coin__image {
   height: 40px;
   width: 40px;
-  margin: 8px;
-  padding: 2px;
+align-self: center;
+justify-self: center;
   border: 2px solid white;
   border-radius: 50%;
 }
-
-.coin__header-left > h2 {
-  text-align: left;
-  font-size: 16px;
-  padding-left: 10px;
-}
-
-.coin__header-left > p {
-  text-align: left;
-  font-size: 16px;
-  text-transform: uppercase;
-}
-.coin__header-left > div {
-  text-align: left;
-  display: flex;
-}
-.coin__header-right {
-  text-align: right;
-}
-.coin__footer {
-  height: 80px;
-}
-.coin__footer--priceChange {
-  text-align: right;
+.coin__identifier {
+  margin-left: 10px;
+  position: relative;
   display: flex;
   flex-direction: column;
+  align-items: flex-start;
 }
-.coin__footer--priceChange > p {
-  padding: 3px 0;
+.coin__symbol {
+  font-family: 'IBM Plex Sans', sans-serif;
+  color: #8daac6;
+  padding-bottom: 5px; ;
 }
-.coin__footer--priceChange > p:nth-child(1) {
-  padding: 0px 0 5px 0;
+.coin__header {
+  color: #ffffff;
+  opacity: 0.85;
+  font-size: 16px;
 }
-
-.coin-percent__arrow {
-  font-size: 19px;
+.coin__current-price {
+  color: #ffffff;
+  opacity: 0.85;
+  position: absolute;
+  left: 0px;
+  bottom:5px;
 }
-.coin-percent__red {
-  color: red;
+.coin__pricing {
+  flex:1;
   display: flex;
-  justify-content: flex-end;
-  align-items: center;
-  padding: 5px 0;
+  flex-direction: column;
+  text-align: end;
+}
+.coin__pricing-header{
+  font-family: 'IBM Plex Sans', sans-serif;
+  color: #8daac6;
+  padding-bottom: 5px; ;
 }
 .coin-percent__green {
-  color: green;
+  color: #1bc5bd;
   display: flex;
   justify-content: flex-end;
   align-items: center;
-  padding: 5px 0;
+  padding-bottom: 5px; 
+}
+.coin-percent__red {
+  color: #f64e60;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  padding-bottom: 5px; ;
+}
+.coin-percent__arrow {
+  font-size: 16px;
 }

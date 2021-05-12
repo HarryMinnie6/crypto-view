@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import Coin from "../Coin/Coin";
+import CoinsSearchCoin from "../CoinSearch/CoinsSearchCoin";
 import "./SearchForCoins.css";
 
 function SearchForCoins({ coins }) {
@@ -15,7 +16,7 @@ function SearchForCoins({ coins }) {
 
   return (
     <div className="searchforCoin__holder">
-      <h1>search for a coin</h1>
+      <h3 className="searchforCoin__holder-header">Search For a Coin</h3>
       <form>
         <input
           type="text"
@@ -24,15 +25,15 @@ function SearchForCoins({ coins }) {
           onChange={searchCoins}
         />
       </form>
-      <div>
+      <div className="searchforCoin__Coin-holder">
         {filteredCoins.map((coin) => (
-          <Coin
+          <CoinsSearchCoin
             key={coin.id}
             symbol={coin.symbol}
             image={coin.image}
             name={coin.name}
             current_price={coin.current_price}
-            price_change_percentage_24h={coin.price_change_percentage_24h}
+            price_change_percentage_24h={coin.price_change_percentage_24h.toFixed(3)}
             last_updated={coin.last_updated}
             market_cap={coin.market_cap.toLocaleString()}
             market_cap={coin.market_cap.toLocaleString()}

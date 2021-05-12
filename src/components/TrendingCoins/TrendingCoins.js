@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import './TrendingCoins.css'
 
 function TrendingCoins() {
   const [trendingCoins, setTrendingCoins] = useState([]);
@@ -10,7 +11,7 @@ function TrendingCoins() {
       });
     console.log("trending coins ->", trendingCoins);
   }, []);
-  return <div>
+  return <div className='trendingCoins'>
   trending coins</div>;
 }
 
