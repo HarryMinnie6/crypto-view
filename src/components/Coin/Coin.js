@@ -1,7 +1,11 @@
 import React from "react";
 import Moment from "react-moment";
-import ArrowDownwardIcon from "@material-ui/icons/ArrowDownward";
-import ArrowUpwardIcon from "@material-ui/icons/ArrowUpward";
+// import ArrowDownwardIcon from "@material-ui/icons/ArrowDownward";
+// import ArrowDownwardIcon from '@material-ui/icons/ArrowDownward';
+// import ArrowUpwardIcon from "@material-ui/icons/ArrowUpward";
+import AcUnitIcon from '@material-ui/icons/AcUnit';
+import KeyboardArrowDownIcon from '@material-ui/icons/KeyboardArrowDown';
+import KeyboardArrowUpIcon from '@material-ui/icons/KeyboardArrowUp';
 
 import "./Coin.css";
 
@@ -36,20 +40,20 @@ function Coin({
             {price_change_percentage_24h < 0 ? (
               <div>
                 <p className="coin-percent__red">
-                  <ArrowDownwardIcon className="coin-percent__arrow" />
                   {price_change_percentage_24h}%
                 </p>
                 <p className="coin-percent__red">
+                <KeyboardArrowDownIcon className="coin-percent__arrow"/>
                   $ <b>{price_change_24h}</b>
                 </p>
               </div>
             ) : (
               <div>
                 <p className="coin-percent__green">
-                  <ArrowUpwardIcon className="coin-percent__arrow" />
                   {price_change_percentage_24h}%
                 </p>
                 <p className="coin-percent__green">
+                <KeyboardArrowUpIcon className="coin-percent__arrow" />
                   $ <b>{price_change_24h}</b>
                 </p>
               </div>
