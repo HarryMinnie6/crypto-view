@@ -19,9 +19,7 @@ function App() {
     setSearch(event.target.value);
   };
 
-  {
-    /* getting all the coins*/
-  }
+  // Getting all coins
   useEffect(() => {
     const getAllCoinsData = async () => {
       await fetch(
@@ -50,6 +48,9 @@ function App() {
 
       <div className="app_bottom">
         <div className="app_bottom--left">
+          <SearchForCoins coins={coins} />
+        </div>
+        <div className="app_bottom--center">
           <SearchForCoins coins={coins} />
         </div>
         <div className="app_bottom--right">
