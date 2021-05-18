@@ -1,11 +1,13 @@
 import React from "react";
-
-import "./Header.css";
+import { Link } from "react-router-dom";
+import './Header.css'
 
 function Header() {
   return (
-    <div className="header">
-      <h1>Crypto View</h1>
+    <div className='header'>
+      <Link to='/' className='header__link'>
+        <h1>Crypto View</h1>
+      </Link>
     </div>
   );
 }

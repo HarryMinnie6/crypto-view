@@ -1,8 +1,11 @@
-.header {
-  background-color: #17b78c;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 55px;
-  color: #fff;
+.header{
+    height: 55px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #17b78c;
+}
+.header__link{
+    text-decoration: none;
+    color: #fff
 }

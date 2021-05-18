@@ -1,0 +1,35 @@
+.globalData{
+    display: flex;
+    justify-content: center;
+    padding: 10px;
+    background-color: #20304C;
+    color: #f9ffff;
+    flex-wrap: wrap;
+    margin-bottom: 10px;
+}
+.globalData__display{
+    display: flex;
+    /* justify-content: center; */
+    margin: 10px 20px;
+    flex-wrap: wrap;
+}
+.globalData__display-link{
+    color:aqua
+}
+
+
+
+.globalData__change-red{
+    margin-left: 5px;
+    color: red
+}
+.globalData__change-green{
+    margin-left: 5px;
+    color: rgb(0, 255, 34)
+}
+@media(max-width:320px) {
+    .globalData__display{
+        margin: 10px ;
+    }
+    
+}
