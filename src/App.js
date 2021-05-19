@@ -5,28 +5,23 @@ import "./App.css";
 import AllCoins from "./components/AllCoins/AllCoins";
 import GlobalData from "./components/GlobalData/GlobalData";
 import Header from "./components/Header/Header";
+import TrendingCoins from "./components/TrendingCoins/TrendingCoins";
 
 function App() {
-  const [search, setSearch] = useState("");
- 
-
-  const searchCoins = (event) => {
-    setSearch(event.target.value);
-  };
-  
   return (
     <Router>
       <Switch>
-        <Route path='/AllCoins'>
-        <Header />
-        <GlobalData />
+        <Route path="/AllCoins">
+          <Header />
+          <GlobalData />
           <AllCoins />
         </Route>
 
-        <Route path='/'>
+        <Route path="/">
           <Header />
           <GlobalData />
-          <AllCoins/>
+          <TrendingCoins />
+          <AllCoins />
         </Route>
       </Switch>
     </Router>

@@ -1,0 +1,37 @@
+.trendingCoin {
+  position: relative;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  background-color: #20304c;
+  width: 285px;
+  height: 160px;
+  margin: 3px;
+  padding: 5px;
+  border-radius: 3px;
+}
+.trendingCoin__image {
+  position: absolute;
+  top: 20px;
+  left: 15px;
+  height: 35px;
+  width: 35px;
+}
+.trendingCoin__display-name {
+  position: absolute;
+  top: 15px;
+  left: 65px;
+  font-family: "IBM Plex Sans", sans-serif;
+  text-align: left;
+}
+.trendingCoin__display-name > p {
+  margin: 0;
+}
+.trendingCoin__symbol {
+  color: #8daac6;
+}
+.trendingCoin__current-price {
+  position: absolute;
+  bottom: 20px;
+  left: 15px;
+}
