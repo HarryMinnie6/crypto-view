@@ -28,7 +28,7 @@ function GlobalData() {
   return (
     <div className='globalData'>
       <div className='globalData__display'>
-        <p> Active coins: <Link to='/AllCoins' className='globalData__display-link'>{global_data.active_cryptocurrencies}</Link></p>
+        <p> Active coins: {global_data.active_cryptocurrencies}</p>
       </div>
       <div className='globalData__display'>
         <p>
@@ -47,7 +47,7 @@ function GlobalData() {
         Market cap change (24h): 
         {!global_data.market_cap_change_percentage_24h_usd < 0 ? (
           <p className='globalData__change-green'>
-             {!global_data.market_cap_change_percentage_24h_usd
+             +{!global_data.market_cap_change_percentage_24h_usd
               ? "loading"
               : global_data.market_cap_change_percentage_24h_usd.toFixed(3)}
             %

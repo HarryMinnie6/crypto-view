@@ -1,11 +1,14 @@
 import React, { useState, useEffect } from "react";
-import Coin from '../../elements/Coin/Coin'
+import Coin from "../../elements/Coin/Coin";
+import SearchCoin from "../../elements/SearchCoin/SearchCoin";
+import InfoIcon from "@material-ui/icons/Info";
+import numeral from "numeral";
 
 import "./AllCoins.css";
-import SearchCoin from "../../elements/SearchCoin/SearchCoin";
 function AllCoins() {
   const [coins, setCoins] = useState([]);
   const [search, setSearch] = useState("");
+
   //filtering coins
   const filteredCoins = coins.filter((coin) =>
     coin.name.toLowerCase().includes(search.toLowerCase())
@@ -25,10 +28,12 @@ function AllCoins() {
         console.log(data);
         setCoins(data);
       });
+      console.log("allcoins", coins);
   }, []);
 
   return (
     <div className='allCoins'>
+      <p className='trendingCoins_header'>Coins rank by market cap</p>
       <form>
         <input
           type='text'
@@ -37,26 +42,50 @@ function AllCoins() {
           onChange={searchCoins}
         />
       </form>
-      <div className='allCoins__display'>
-      
+    
           {filteredCoins.map((coin) => (
-          
-            <Coin name={coin.id}
-            image={coin.image}
-            symbol={coin.symbol}
-            current_price={coin.current_price}
-            price_change_percentage_24h ={coin.price_change_percentage_24h}
-            price_change_24h={coin.price_change_24h}
-            market_cap={coin.market_cap}
-            />
+<Coin key = {coin.id}
+name={coin.id}
+  image={coin.image}
+  symbol={coin.symbol}
+  current_price={coin.current_price}
+  price_change_percentage_24h={coin.price_change_percentage_24h}
+  price_change_24h={coin.price_change_24h}
+  market_cap={coin.market_cap}
+  rank={coin.market_cap_rank}/>
           ))}
-       
-          </div>
-     
 
-      
+          {/*<tr>
+      <td>123456</td>
+      <td>4</td>
+      <td>michael jordan/ 12:55</td>
+    </tr>*/}
+       
     </div>
   );
 }
 
 export default AllCoins;
+
+// key = {coin.id}
+//           name={coin.id}
+//             image={coin.image}
+//             symbol={coin.symbol}
+//             current_price={coin.current_price}
+//             price_change_percentage_24h={coin.price_change_percentage_24h}
+//             price_change_24h={coin.price_change_24h}
+//             market_cap={coin.market_cap}
+//             rank={coin.market_cap_rank}
+
+//    {filteredCoins.map((coin) => (
+//   <Coin key = {coin.id}
+//   name={coin.id}
+//     image={coin.image}
+//     symbol={coin.symbol}
+//     current_price={coin.current_price}
+//     price_change_percentage_24h={coin.price_change_percentage_24h}
+//     price_change_24h={coin.price_change_24h}
+//     market_cap={coin.market_cap}
+//     rank={coin.market_cap_rank}
+//   />
+// ))}

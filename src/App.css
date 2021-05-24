@@ -1,14 +1,12 @@
 @import url("https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@200&family=Rubik:wght@300&display=swap");
-
 * {
   margin: 0;
   padding: 0;
-  font-family: "IBM Plex Sans", sans-serif;
-  font-family: "Rubik", sans-serif;
-  
+  font-family: 'IBM Plex Sans', sans-serif;
+font-family: 'Rubik', sans-serif;
 }
 
-body {
+.app {
   display: flex;
   flex-direction: column;
   text-align: center;
@@ -19,27 +17,20 @@ body {
     rgba(47, 58, 86, 1) 100%
   ); */
   color: #f9ffff;
-  height: 100vh;
 }
 .app_bottom {
   display: flex;
-  justify-content: center;
+  justify-content: space-between;
 }
 .app_bottom--left {
   display: flex;
   flex-direction: column;
-  flex: 0.3;
-}
-.app_bottom--center {
-  display: flex;
-  flex-direction: column;
-  flex: 0.4;
-  margin: 0 20px;
+  flex: 075;
 }
 .app_bottom--right {
   display: flex;
   flex-direction: column;
-  flex: 0.3;
+  flex: 0.25;
 }
 
 @media (max-width: 800px) {

@@ -1,5 +1,6 @@
 import React from "react";
 import Moment from "react-moment";
+import numeral from "numeral";
 
 import "./TrendingCoin.css";
 
@@ -10,7 +11,7 @@ function TrendingCoin({
   current_price,
   price_change_percentage_24h,
   last_updated,
-  market_cap,
+  market_cap_rank,
   total_supply,
   price_change_24h
 }) {
@@ -22,7 +23,9 @@ function TrendingCoin({
         <p className="trendingCoin__symbol">{symbol}</p>
       </div>
 
-      <p className="trendingCoin__current-price">$ {current_price}</p>
+      <p className="trendingCoin__current-price">Price: BTC {current_price.toFixed(10)}</p>
+      <p className="trendingCoin__market_cap_rank"># {market_cap_rank}</p>
+ 
     </div>
   );
 }

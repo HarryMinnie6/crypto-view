@@ -16,6 +16,7 @@ function TrendingCoins({
   price_change_24h
 }) {
   const [trendingCoins, setTrendingCoins] = useState([]);
+  const [usdValue, setUSDValue] = useState([]);
   // Getting global data
   useEffect(() => {
     fetch(" https://api.coingecko.com/api/v3/search/trending")
@@ -26,15 +27,25 @@ function TrendingCoins({
       });
 
     console.log("trending", trendingCoins);
-    // console.log("totalmktcp --->", Object.values(global_data.total_market_cap).reduce((a, b) => a + b, 0));
-    //   console.log("globaldata --->", Object.values(global_data.total_market_cap).reduce((a, b) => a + b, 0));
+    
+  }, []);
+  // Getting global data
+  useEffect(() => {
+    fetch(" https://api.coingecko.com/api/v3/exchange_rates")
+      .then((response) => response.json())
+      .then((data) => {
+        console.log("fff", data);
+        setUSDValue(data);
+      });
 
-    // console.log("total",  Object.values(global_data.total_market_cap).reduce((a, b) => a + b, 0));
-    // console.log("total",  Object.values(global_data.total_market_cap).reduce((a, b) => a + b, 0));
+    console.log("usd price", usdValue);
+    
   }, []);
   return (
-    <div className="trendingCoinElement">
-      {trendingCoins.map((coin) => (
+    <div className="trendingCoins">
+    <p className="trendingCoins_header">Top 5 trending coins</p>
+    <div className="trendingCoins__display">
+      {trendingCoins.slice(0,5).map((coin) => (
         <TrendingCoin
           image={coin.item.large}
           symbol={coin.item.symbol}
@@ -47,6 +58,7 @@ function TrendingCoins({
           price_change_24h={"k"}
         />
       ))}
+      </div>
     </div>
   );
 }

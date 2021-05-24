@@ -3,9 +3,9 @@
   display: flex;
   justify-content: flex-start;
   align-items: center;
-  background-color: #20304c;
-  width: 285px;
-  height: 160px;
+  background-color: #0C1A32;
+  width: 260px;
+  height: 100px;
   margin: 3px;
   padding: 5px;
   border-radius: 3px;
@@ -32,6 +32,14 @@
 }
 .trendingCoin__current-price {
   position: absolute;
-  bottom: 20px;
-  left: 15px;
+  bottom:-5px;
+  left:15px;
+}
+.trendingCoin__market_cap_rank{
+  color: #8daac6;
+  position: absolute;
+  top: 15px;
+  right: 15px;
+  
+  font-size: 16px;
 }

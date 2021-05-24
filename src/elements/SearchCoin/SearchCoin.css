@@ -1,0 +1,32 @@
+.searchCoin{
+    display: flex;
+   justify-content: space-between;
+   align-items: center;
+    background-color: #0C1A32;
+    margin:5px;
+    width:100%
+}
+.searchCoin__rank-holder{
+    background-color: aqua;
+}
+.searchCoin__name-and-image-holder{
+    background-color: rgb(25, 158, 158);
+}
+
+/* --------------------------------------------------- */
+.coin-percent__green {
+    font-size: 16px;
+    color: #1bc5bd;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    padding-bottom: 5px;
+  }
+  .coin-percent__red {
+    font-size: 16px;
+    color: #f64e60;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    padding-bottom: 5px;
+  }
