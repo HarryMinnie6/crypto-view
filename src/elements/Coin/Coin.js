@@ -1,6 +1,8 @@
 import React, { useState, useToggle } from "react";
 import "./Coin.css";
 import InfoIcon from "@material-ui/icons/Info";
+import GitHubIcon from "@material-ui/icons/GitHub";
+import LanguageIcon from "@material-ui/icons/Language";
 import numeral from "numeral";
 function Coin({
   image,
@@ -10,7 +12,7 @@ function Coin({
   price_change_percentage_24h,
   market_cap,
   rank,
-  price_change_24h,
+  price_change_24h
 }) {
   const [singleCoinDetails, setSingleCoinDetails] = useState([]);
   const [coinDescription, setCoinDescription] = useState("");
@@ -42,34 +44,33 @@ function Coin({
 
   return (
     <div className={coinExtraInfoDisplay ? "coin coin_extended" : "coin"}>
-      <div className='coin__top'>
-     
-        <div className='coin__rank-holder'>
-          <p className='coin-p'>Rank</p>
-          <p className='coin-p'>1</p>
+      <div className="coin__top">
+        <div className="coin__rank-holder">
+          <p className="coin-p">Rank</p>
+          <p className="coin-p">{rank}</p>
         </div>
-        <div className='coin__name-and-image-holder'>
-          <img src={image} className='coin__image' />
-          <div className='coin__name'>
-            <p className='coin-p name'>{name}</p>
-            <p className='coin-p coin_symbol'>{symbol}</p>
+        <div className="coin__name-and-image-holder">
+          <img src={image} alt={name} className="coin__image" />
+          <div className="coin__name">
+            <p className="coin-p name">{name}</p>
+            <p className="coin-p coin_symbol">{symbol}</p>
           </div>
         </div>
-        <div className='coin__current-price-holder'>
-          <p className='coin-p '>Price</p>
-          <p className='coin-p'>${current_price.toFixed(2)}</p>
+        <div className="coin__current-price-holder">
+          <p className="coin-p ">Price</p>
+          <p className="coin-p">${current_price.toFixed(2)}</p>
         </div>
-        <div className='coin__price-change-holder'>
-          <p className='coin-p'>24h chg</p>
+        <div className="coin__price-change-holder">
+          <p className="coin-p">24h chg</p>
           {price_change_percentage_24h < 0 ? (
-            <p className='coin-percent__red coin-p'>
+            <p className="coin-percent__red coin-p">
               {!price_change_percentage_24h
                 ? "loading"
                 : price_change_percentage_24h.toFixed(3)}
               %{" "}
             </p>
           ) : (
-            <p className='coin-percent__green coin-p'>
+            <p className="coin-percent__green coin-p">
               +
               {!price_change_percentage_24h
                 ? "loading"
@@ -78,66 +79,86 @@ function Coin({
             </p>
           )}
         </div>
-        <div className='coin__market-cap-holder'>
-          <p className='coin-p'>Mkt cap</p>
-          <p className='coin__market-cap coin-p'>
+        <div className="coin__market-cap-holder">
+          <p className="coin-p">Mkt cap</p>
+          <p className="coin__market-cap coin-p">
             ${numeral(market_cap).format("0,0e")}
           </p>
         </div>
-        <div className='coin_button'><InfoIcon className='coin__more-info' onClick={getCoinInfo} /></div>
-        
+        <div className="coin_button">
+          <InfoIcon className="coin__more-info" onClick={getCoinInfo} />
+        </div>
       </div>
-      <div className={ coinExtraInfoDisplay ? "coin__bottom-display" : "coin__bottom"}>
-      
-      dddd</div>
+      <div
+        className={
+          coinExtraInfoDisplay ? "coin__bottom-display" : "coin__bottom"
+        }
+      >
+        <p className="coin__bottom-display-genesis-date coin__bottom-display-p">
+          Genesis Date:{" "}
+          {!coinDescription ? "loading" : singleCoinDetails.genesis_date}
+        </p>
+        <p className="coin__bottom-display-website coin__bottom-display-p">
+          Website:
+          <a
+            className="coin__bottom-display-link"
+            href={!coinDescription ? "-" : singleCoinDetails.links.homepage}
+          >
+            {" "}
+            {name}{" "}
+          </a>
+        </p>
+        <p className="coin__bottom-display-explorers coin__bottom-display-p">
+          Explorers:{" "}
+          {!coinDescription
+            ? "loading"
+            : singleCoinDetails.links.blockchain_site.map((site) => (
+                <a className="display-link" href={site}>
+                  {" "}
+                  <LanguageIcon />{" "}
+                </a>
+              ))}
+        </p>
+
+        <p className="coin__bottom-display-genesis-date coin__bottom-display-p">
+          Official Forum:{" "}
+          <a
+            className="display-link"
+            href={
+              !coinDescription
+                ? "loading"
+                : singleCoinDetails.links.official_forum_url
+            }
+          >
+            {" "}
+            forum
+          </a>
+        </p>
+        <p className="coin__bottom-display-source-code coin__bottom-display-p">
+          Source Code:{" "}
+          <a
+            href={
+              !coinDescription
+                ? "-"
+                : singleCoinDetails.links.repos_url.github[0]
+            }
+          >
+            {!coinDescription
+              ? "-"
+              : singleCoinDetails.links.repos_url.github[0]
+                  .split(".")[0]
+                  .slice(8)}
+          </a>
+        </p>
+
+        <p className="coin__bottom-display-decription coin__bottom-display-p">
+          {!coinDescription
+            ? "loading"
+            : Object.values(coinDescription)[0].replace(/<\/?[^>]+>/gi, "")}
+        </p>
+      </div>
     </div>
   );
 }
 
 export default Coin;
-
-// <div className={coinExtraInfoDisplay ? "coin coin_extended" : "coin"} >
-//       <img src={image} alt={name} className="coin__image" />
-//       <div className="coin__display-name">
-//         <p>{name}</p>
-//         <p className="coin__symbol">{symbol}</p>
-//       </div>
-//       <div className="coin__rank">#{rank}</div>
-
-//       <div className="coin__pricing">
-//         24h chg
-//         {price_change_percentage_24h < 0 ? (
-//           <p className="coin-percent__red">
-//             <b>{price_change_percentage_24h.toFixed(3)}% </b>
-//           </p>
-//         ) : (
-//           <p className="coin-percent__green">
-//             <b>+{price_change_percentage_24h.toFixed(3)}% </b>
-//           </p>
-//         )}
-//       </div>
-//       <div className="coin__pricing-dollar">
-//         {price_change_24h < 0 ? (
-//           <p className="coin-percent__red">$ {price_change_24h.toFixed(2)}</p>
-//         ) : (
-//           <p className="coin-percent__green">
-//             $ +{price_change_24h.toFixed(2)}
-//           </p>
-//         )}
-//       </div>
-//       <p className="coin__current-price">Price: $ {current_price}</p>
-//       <p className="coin__market-cap">
-//         Mkt Cap: $ {numeral(market_cap).format("0,0e")}
-//       </p>
-//       <InfoIcon className='coin__more-info' onClick={getCoinInfo}/>
-      // <div className={ coinExtraInfoDisplay ? "coin__more-info-holder2" : "coin__more-info-holder"}>
-
-      // <p>explorers: {!coinDescription ? "loading" : singleCoinDetails.links.blockchain_site} </p>
-      // <p>Official forum: {!coinDescription ? "loading" : singleCoinDetails.links.official_forum_url[0]} </p>
-      // <p>Source Code: {!coinDescription ? "loading" : singleCoinDetails.links.repos_url.github[0]} </p>
-      // <p>site: {!coinDescription ? "loading" : singleCoinDetails.links.homepage} </p>
-      // <p>max supply: {!coinDescription ? "loading" : singleCoinDetails.market_data.max_supply.toLocaleString()} </p>
-      // <p>description: {!coinDescription ? "loading" : Object.values(coinDescription)[0].replace(/<\/?[^>]+>/gi, '')}</p>
-
-      // </div>
-//     </div>

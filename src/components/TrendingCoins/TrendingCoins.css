@@ -1,20 +1,24 @@
-.trendingCoins{
-    display: flex;
-    flex-direction:column;
-    align-items: center;
-    justify-content: center;
-    background-color: #20304c;
-    margin: 10px 10px 10px 5px ;
-    padding: 10px ;
+.trendingCoins {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background-color: #20304c;
+  margin: 10px 10px 10px 5px;
+  padding: 10px;
 }
-.trendingCoins_header{
-    font-size: 20px;
+.trendingCoins_header {
+  font-size: 20px;
 }
 
-.trendingCoins__display{
-    display: flex;
-    justify-content: center;
-    flex-wrap: wrap;
-   
-    
+.trendingCoins__display {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+@media (max-width: 800px) {
+  .trendingCoins {
+    margin: 10px 10px 0px 10px;
+  }
 }

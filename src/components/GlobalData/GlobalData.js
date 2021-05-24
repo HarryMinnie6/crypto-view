@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import {Link} from 'react-router-dom'
+import { Link } from "react-router-dom";
 import Moment from "react-moment";
 import numeral from "numeral";
 import "./GlobalData.css";
@@ -26,11 +26,11 @@ function GlobalData() {
   }, []);
 
   return (
-    <div className='globalData'>
-      <div className='globalData__display'>
+    <div className="globalData">
+      <div className="globalData__display">
         <p> Active coins: {global_data.active_cryptocurrencies}</p>
       </div>
-      <div className='globalData__display'>
+      <div className="globalData__display">
         <p>
           Total Market Cap: $
           {!global_data.total_market_cap
@@ -39,38 +39,43 @@ function GlobalData() {
                 Object.values(global_data.total_market_cap)
                   .reduce((a, b) => a + b, 0)
                   .toLocaleString()
-              ).format("0,0 a").toUpperCase()}`}
+              )
+                .format("0,0 a")
+                .toUpperCase()}`}
         </p>
       </div>
 
-      <div className='globalData__display'>
-        Market cap change (24h): 
+      <div className="globalData__display">
+        Market cap change (24h):
         {!global_data.market_cap_change_percentage_24h_usd < 0 ? (
-          <p className='globalData__change-green'>
-             +{!global_data.market_cap_change_percentage_24h_usd
+          <p className="globalData__change-red-globalData">
+            +
+            {!global_data.market_cap_change_percentage_24h_usd
               ? "loading"
               : global_data.market_cap_change_percentage_24h_usd.toFixed(3)}
             %
           </p>
         ) : (
-          <p className='globalData__change-red'>
-             {!global_data.market_cap_change_percentage_24h_usd
+          <p className="globalData__change-red-globalData">
+            {!global_data.market_cap_change_percentage_24h_usd
               ? "loading"
               : global_data.market_cap_change_percentage_24h_usd.toFixed(3)}
             %
           </p>
         )}
       </div>
-      <div className='globalData__display'>
+      <div className="globalData__display">
         <p>
-          Total Volume: 
+          Total Volume:
           {!global_data.total_volume
             ? "loading"
             : ` $${numeral(
                 Object.values(global_data.total_volume)
                   .reduce((a, b) => a + b, 0)
                   .toLocaleString()
-              ).format("0,0 a").toUpperCase()}`}
+              )
+                .format("0,0 a")
+                .toUpperCase()}`}
         </p>
       </div>
     </div>

@@ -1,46 +1,43 @@
-.globalData{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    padding: 10px;
-    background-color: #20304C;
-    color: #f9ffff;
-    flex-wrap: wrap;
-    margin: 10px 10px 0 ;
+.globalData {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 10px;
+  background-color: #20304c;
+  color: #f9ffff;
+  flex-wrap: wrap;
+  margin: 10px 10px 0;
 }
-.globalData__display{
-    display: flex;
-    /* align-items: center; */
-    /* justify-content: center; */
-    margin: 0px 20px;
-    flex-wrap: wrap;
-    padding: 0
+.globalData__display {
+  display: flex;
+  /* align-items: center; */
+  /* justify-content: center; */
+  margin: 0px 20px;
+  flex-wrap: wrap;
+  padding: 0;
 }
-.globalData__display > p{
-    display: flex;
-    /* align-items: center; */
-    /* justify-content: center; */
-    margin: 0px 20px;
-    flex-wrap: wrap;
-    padding: 0
+.globalData__display > p {
+  display: flex;
+  /* align-items: center; */
+  /* justify-content: center; */
+  margin: 0px 20px;
+  flex-wrap: wrap;
+  padding: 0;
 }
-.globalData__display-link{
-    color:aqua
+.globalData__display-link {
+  color: aqua;
 }
 
-
-
-.globalData__change-red{
-    margin-left: 5px;
-    color: red
+.globalData__change-red-globalData {
+  margin-left: 5px !important;
+  color: red;
 }
-.globalData__change-green{
-    margin-left: 5px;
-    color: rgb(0, 255, 34)
+.globalData__change-green {
+  margin-left: 5px !important;
+  color: rgb(0, 255, 34);
 }
-@media(max-width:320px) {
-    .globalData__display{
-        margin: 10px ;
-    }
-    
+@media (max-width: 320px) {
+  .globalData__display {
+    margin: 10px;
+  }
 }
