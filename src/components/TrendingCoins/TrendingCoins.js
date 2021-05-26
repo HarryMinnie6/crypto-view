@@ -16,7 +16,7 @@ function TrendingCoins({
   price_change_24h
 }) {
   const [trendingCoins, setTrendingCoins] = useState([]);
-  const [usdValue, setUSDValue] = useState([]);
+  
   // Getting global data
   useEffect(() => {
     fetch(" https://api.coingecko.com/api/v3/search/trending")
@@ -29,21 +29,10 @@ function TrendingCoins({
     console.log("trending", trendingCoins);
     
   }, []);
-  // Getting global data
-  useEffect(() => {
-    fetch(" https://api.coingecko.com/api/v3/exchange_rates")
-      .then((response) => response.json())
-      .then((data) => {
-        console.log("fff", data);
-        setUSDValue(data);
-      });
-
-    console.log("usd price", usdValue);
-    
-  }, []);
+ 
   return (
     <div className="trendingCoins">
-    <p className="trendingCoins_header">Top 5 trending coins</p>
+    <p className="trendingCoins_header">Top 5 Trending Coins</p>
     <div className="trendingCoins__display">
       {trendingCoins.slice(0,5).map((coin) => (
         <TrendingCoin

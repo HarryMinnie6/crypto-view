@@ -1,0 +1,35 @@
+.information{
+    display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 10px;
+  background-color: #20304c;
+  flex-wrap: wrap;
+  margin: 10px 10px 0;
+}
+.main-accordian{
+    background-color: #0c1a32 !important;
+}
+.accordian-details{
+    background-color: #0c1a32;
+    color: #fff;
+    text-align: left;
+}
+.accordian{
+    background-color: #0c1a32 !important;
+    color: #fff !important;
+}
+ul{
+    padding-left: 20px;
+}
+.accordian-header{
+    color: #8daac6;
+}
+.expand-more{
+    color: #8daac6;
+}
+@media(max-width: 768px){
+    .accordian-header{
+        font-size: 18px;
+    }
+}

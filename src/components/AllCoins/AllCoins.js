@@ -28,64 +28,37 @@ function AllCoins() {
         console.log(data);
         setCoins(data);
       });
-      console.log("allcoins", coins);
+    console.log("allcoins", coins);
   }, []);
 
   return (
     <div className='allCoins'>
-      <p className='trendingCoins_header'>Coins rank by market cap</p>
+      <p className='allCoins_header'>Coin Rank By Market Cap</p>
       <form>
         <input
           type='text'
-          placeholder='Coin Search'
+          placeholder='Search for a coin'
           className='coin__search'
           onChange={searchCoins}
         />
       </form>
-    
-          {filteredCoins.map((coin) => (
-<Coin key = {coin.id}
-name={coin.id}
-  image={coin.image}
-  symbol={coin.symbol}
-  current_price={coin.current_price}
-  price_change_percentage_24h={coin.price_change_percentage_24h}
-  price_change_24h={coin.price_change_24h}
-  market_cap={coin.market_cap}
-  rank={coin.market_cap_rank}/>
-          ))}
-
-          {/*<tr>
-      <td>123456</td>
-      <td>4</td>
-      <td>michael jordan/ 12:55</td>
-    </tr>*/}
-       
+      <div className='allCoins__display'>
+        {filteredCoins.map((coin) => (
+          <Coin
+            key={coin.id}
+            name={coin.id}
+            image={coin.image}
+            symbol={coin.symbol}
+            current_price={coin.current_price}
+            price_change_percentage_24h={coin.price_change_percentage_24h}
+            price_change_24h={coin.price_change_24h}
+            market_cap={coin.market_cap}
+            rank={coin.market_cap_rank}
+          />
+        ))}
+      </div>
     </div>
   );
 }
 
 export default AllCoins;
-
-// key = {coin.id}
-//           name={coin.id}
-//             image={coin.image}
-//             symbol={coin.symbol}
-//             current_price={coin.current_price}
-//             price_change_percentage_24h={coin.price_change_percentage_24h}
-//             price_change_24h={coin.price_change_24h}
-//             market_cap={coin.market_cap}
-//             rank={coin.market_cap_rank}
-
-//    {filteredCoins.map((coin) => (
-//   <Coin key = {coin.id}
-//   name={coin.id}
-//     image={coin.image}
-//     symbol={coin.symbol}
-//     current_price={coin.current_price}
-//     price_change_percentage_24h={coin.price_change_percentage_24h}
-//     price_change_24h={coin.price_change_24h}
-//     market_cap={coin.market_cap}
-//     rank={coin.market_cap_rank}
-//   />
-// ))}

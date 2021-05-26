@@ -13,19 +13,20 @@ function TrendingCoin({
   last_updated,
   market_cap_rank,
   total_supply,
-  price_change_24h
+  price_change_24h,
 }) {
   return (
-    <div className="trendingCoin">
-      <img src={image} alt={name} className="trendingCoin__image" />
-      <div className="trendingCoin__display-name">
+    <div className='trendingCoin'>
+      <img src={image} alt={name} className='trendingCoin__image' />
+      <div className='trendingCoin__display-name'>
         <p>{name}</p>
-        <p className="trendingCoin__symbol">{symbol}</p>
+        <p className='trendingCoin__symbol'>{symbol}</p>
       </div>
 
-      <p className="trendingCoin__current-price">Price: BTC {current_price.toFixed(10)}</p>
-      <p className="trendingCoin__market_cap_rank"># {market_cap_rank}</p>
- 
+      <p className='trendingCoin__current-price'>
+        Price: BTC {current_price.toFixed(10)}
+      </p>
+      <p className='trendingCoin__market_cap_rank'># {market_cap_rank}</p>
     </div>
   );
 }

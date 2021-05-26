@@ -6,7 +6,7 @@ import "./GlobalData.css";
 function GlobalData() {
   const [global_data, setGlobal_data] = useState([]);
   const [totalMarketCap, setTotalMarketCap] = useState(null);
-  //  const [totalVolume, setVolume] = useState([]);
+ 
 
   // Getting global data
   useEffect(() => {
@@ -18,17 +18,13 @@ function GlobalData() {
       });
 
     console.log("global data", global_data);
-    // console.log("totalmktcp --->", Object.values(global_data.total_market_cap).reduce((a, b) => a + b, 0));
-    //   console.log("globaldata --->", Object.values(global_data.total_market_cap).reduce((a, b) => a + b, 0));
-
-    // console.log("total",  Object.values(global_data.total_market_cap).reduce((a, b) => a + b, 0));
-    // console.log("total",  Object.values(global_data.total_market_cap).reduce((a, b) => a + b, 0));
+  
   }, []);
 
   return (
     <div className="globalData">
       <div className="globalData__display">
-        <p> Active coins: {global_data.active_cryptocurrencies}</p>
+        <p> Active Coins: {global_data.active_cryptocurrencies}</p>
       </div>
       <div className="globalData__display">
         <p>
@@ -46,7 +42,7 @@ function GlobalData() {
       </div>
 
       <div className="globalData__display">
-        Market cap change (24h):
+        Market Cap Change (24h):
         {!global_data.market_cap_change_percentage_24h_usd < 0 ? (
           <p className="globalData__change-red-globalData">
             +

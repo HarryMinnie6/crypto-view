@@ -11,11 +11,6 @@
   flex-direction: column;
   text-align: center;
   background: #0c1a32;
-  /* background: linear-gradient(
-    180deg,
-    rgba(83, 94, 127, 1) 0%,
-    rgba(47, 58, 86, 1) 100%
-  ); */
   color: #f9ffff;
 }
 .app_bottom {
