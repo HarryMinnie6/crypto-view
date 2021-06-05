@@ -20,16 +20,18 @@ export default function SimpleAccordion() {
 
   return (
     <div className='information'>
-    <p className='trendingCoins_header'>Frequently Asked Questions About Cryptocurrency</p>
-    
+      <p className='trendingCoins_header'>
+        Frequently Asked Questions About Cryptocurrency
+      </p>
+
       <Accordion>
         <AccordionSummary
           className='accordian'
-          expandIcon={<ExpandMoreIcon className='expand-more'/>}
+          expandIcon={<ExpandMoreIcon className='expand-more' />}
           aria-controls='panel1a-content'
           id='panel1a-header'
         >
-          <Typography>
+          <Typography className='typography'>
             <h5 className='accordian-header'>What Is Cryptocurrency?</h5>
           </Typography>
         </AccordionSummary>
@@ -50,7 +52,7 @@ export default function SimpleAccordion() {
       <Accordion>
         <AccordionSummary
           className='accordian'
-          expandIcon={<ExpandMoreIcon className='expand-more'/>}
+          expandIcon={<ExpandMoreIcon className='expand-more' />}
           aria-controls='panel1a-content'
           id='panel1a-header'
         >
@@ -77,7 +79,7 @@ export default function SimpleAccordion() {
       <Accordion>
         <AccordionSummary
           className='accordian'
-          expandIcon={<ExpandMoreIcon className='expand-more'/>}
+          expandIcon={<ExpandMoreIcon className='expand-more' />}
           aria-controls='panel1a-content'
           id='panel1a-header'
         >
@@ -107,50 +109,37 @@ export default function SimpleAccordion() {
       <Accordion className='main-accordian'>
         <AccordionSummary
           className='accordian'
-          expandIcon={<ExpandMoreIcon className='expand-more'/>}
+          expandIcon={<ExpandMoreIcon className='expand-more' />}
           aria-controls='panel1a-content'
           id='panel1a-header'
         >
           <Typography>
-            <h5 className='accordian-header'>Why Are Cryptocurrencies So Popular?</h5>
+            <h5 className='accordian-header'>
+              Why Are Cryptocurrencies So Popular?
+            </h5>
           </Typography>
         </AccordionSummary>
         <AccordionDetails className='accordian-details'>
           <Typography>
-            <p>
-              Cryptocurrencies appeal to their supporters for a variety of
-              reasons. Here are some of the most popular:
-            </p>
-            <ul className>
-              <li>
-                Supporters see cryptocurrencies such as Bitcoin as the currency
-                of the future and are racing to buy them now, presumably before
-                they become more valuable.
-              </li>
-              <li>
-                Some supporters like the fact that cryptocurrency removes
-                central banks from managing the money supply, since over time
-                these banks tend to reduce the value of money via inflation.
-              </li>
-              <li>
-                Other supporters like the technology behind cryptocurrencies,
-                the blockchain, because it’s a decentralized processing and
-                recording system and can be more secure than traditional payment
-                systems.
-              </li>
-              <li>
-                Some speculators like cryptocurrencies because they’re going up
-                in value and have no interest in the currencies’ long-term
-                acceptance as a way to move money.
-              </li>
-            </ul>
+            Cryptocurrencies are becoming more popular today as a way to buy and
+            sell goods and/or services on the internet. With the world becoming
+            more interconnected every day, it’s commonplace for people in one
+            country to do business with people in another. The old way of doing
+            international business or purchasing goods/services internationally
+            was to use third-party sites to conduct the transactions. That’s
+            because many financial institutions would block transactions that
+            were occurring overseas. Today, though, with the advent and
+            popularity of cryptocurrencies, this process has become much easier.
+            Now, it’s very easy for people to buy and sell goods to or from
+            international customers, and to fund their accounts at a crypto
+            casino website, for example.
           </Typography>
         </AccordionDetails>
       </Accordion>
       <Accordion className='main-accordian'>
         <AccordionSummary
           className='accordian'
-          expandIcon={<ExpandMoreIcon className='expand-more'/>}
+          expandIcon={<ExpandMoreIcon className='expand-more' />}
           aria-controls='panel1a-content'
           id='panel1a-header'
         >
